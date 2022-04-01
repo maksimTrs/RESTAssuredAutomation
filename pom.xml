@@ -22,6 +22,7 @@
         <hamkrest.ver>1.3</hamkrest.ver>
         <json.schema.validator.ver>4.3.3</json.schema.validator.ver>
         <json.ver>20211205</json.ver>
+        <maven.compiler.ver>3.8.1</maven.compiler.ver>
     </properties>
 
     <dependencies>
@@ -87,6 +88,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.ver}</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
