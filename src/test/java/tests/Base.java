@@ -14,4 +14,5 @@ public abstract class Base {
         baseURI = "https://reqres.in/api/";
         basePath = "users";
     }
+
 }

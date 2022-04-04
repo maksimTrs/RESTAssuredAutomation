@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Story;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.slf4j.Logger;
@@ -46,6 +48,8 @@ public class TestExampleDelete1 extends Base {
     }
 
     @Test(priority = 4, description = "Test Delete Method from https://reqres.in/api/users/{ID} endpoint")
+    @Story("Delete API test")
+    @Description("Delete API test for /reqres.in/api/users/{ID}")
     public void test_DeleteMethod() {
         //   String pojoPostResponseId = TestExamplePost1.id;
         LOGGER.info("test_DeleteMethod() was started");
