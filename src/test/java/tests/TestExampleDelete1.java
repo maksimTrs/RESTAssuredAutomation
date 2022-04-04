@@ -1,9 +1,9 @@
 package tests;
 
-import io.qameta.allure.*;
-import io.qameta.allure.restassured.AllureRestAssured;
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +27,7 @@ public class TestExampleDelete1 extends Base {
     Response response;
     PojoPostResponse pojoPostResponse;
 
-   // @Step("Prepare data for  Put Method")
+    // @Step("Prepare data for  Put Method")
     @BeforeMethod
     public void preparePostResponseForDeleteMethod() {
         PodamFactory podamFactory = new PodamFactoryImpl();
@@ -37,10 +37,9 @@ public class TestExampleDelete1 extends Base {
         //   pojoPostAndPutRequest.setName("morpheus1");
         //   pojoPostAndPutRequest.setJob("leader1");
 
-        pojoPostResponse = given().log().uri()
-                .filter(new AllureRestAssured())
+        pojoPostResponse = given()
+                // .spec(requestSpecification)
                 .when()
-                .contentType(ContentType.JSON)
                 .body(pojoPostAndPutRequestPodam) // pojoPostAndPutRequest   pojoPostAndPutRequestPodam
                 .post()
                 .then().log().body()
@@ -61,10 +60,8 @@ public class TestExampleDelete1 extends Base {
         LOGGER.info("test_DeleteMethod() was started");
 
 
-        response = given().log().uri()
-                .filter(new AllureRestAssured())
+        response = given()
                 .when()
-                .contentType(ContentType.JSON)
                 .delete(divider + pojoPostResponseId)
                 .then().log().body()
                 .statusCode(204)
