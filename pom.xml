@@ -27,6 +27,7 @@
         <podam.ver>7.2.7.RELEASE</podam.ver>
         <allure.testng.ver>2.17.2</allure.testng.ver>
         <aspectj.version>1.9.5</aspectj.version>
+        <allure.rest.assured.ver>2.17.2</allure.rest.assured.ver>
     </properties>
 
     <dependencies>
@@ -96,6 +97,11 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <version>${allure.testng.ver}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-rest-assured</artifactId>
+            <version>${allure.rest.assured.ver}</version>
         </dependency>
 
     </dependencies>
