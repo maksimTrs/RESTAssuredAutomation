@@ -21,7 +21,7 @@ public class TestExampleDelete1 extends Base {
 
     Response response;
     PojoPostResponse pojoPostResponse;
-    PojoPostAndPutRequest pojoPostAndPutRequest;
+  //  PojoPostAndPutRequest pojoPostAndPutRequest;
     private static String pojoPostResponseId = "";
 
 
@@ -30,9 +30,9 @@ public class TestExampleDelete1 extends Base {
         PodamFactory podamFactory = new PodamFactoryImpl();
         PojoPostAndPutRequest pojoPostAndPutRequestPodam = podamFactory.manufacturePojo(PojoPostAndPutRequest.class);
 
-        pojoPostAndPutRequest = new PojoPostAndPutRequest();
-        pojoPostAndPutRequest.setName("morpheus1");
-        pojoPostAndPutRequest.setJob("leader1");
+    //    pojoPostAndPutRequest = new PojoPostAndPutRequest();
+     //   pojoPostAndPutRequest.setName("morpheus1");
+     //   pojoPostAndPutRequest.setJob("leader1");
 
         pojoPostResponse = given().log().uri()
                 .when()
