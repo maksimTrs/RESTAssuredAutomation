@@ -35,7 +35,7 @@ public class TestExampleGet1 extends Base {
                 .body("data[0].email", equalTo("michael.lawson@reqres.in"));
     }
 
-    @Test(description = "Test Get Method from https://reqres.in/api/users?page=2 endpoint")
+    @Test(description = "Test Get Method from https://reqres.in/api/users?page=1 endpoint")
     public void test_GetMethod2() {
 
         Response response = given().log().uri()

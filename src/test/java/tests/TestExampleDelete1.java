@@ -9,6 +9,8 @@ import org.testng.annotations.Test;
 import pojo.PojoPostAndPutRequest;
 import pojo.PojoPostResponse;
 import pojo.PojoPutResponse;
+import uk.co.jemos.podam.api.PodamFactory;
+import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -25,6 +27,9 @@ public class TestExampleDelete1 extends Base {
 
     @BeforeMethod
     public void preparePostResponseForDeleteMethod() {
+        PodamFactory podamFactory = new PodamFactoryImpl();
+        PojoPostAndPutRequest pojoPostAndPutRequestPodam = podamFactory.manufacturePojo(PojoPostAndPutRequest.class);
+
         pojoPostAndPutRequest = new PojoPostAndPutRequest();
         pojoPostAndPutRequest.setName("morpheus1");
         pojoPostAndPutRequest.setJob("leader1");
@@ -32,7 +37,7 @@ public class TestExampleDelete1 extends Base {
         pojoPostResponse = given().log().uri()
                 .when()
                 .contentType(ContentType.JSON)
-                .body(pojoPostAndPutRequest) // pojoPostAndPutRequest   jsonString
+                .body(pojoPostAndPutRequestPodam) // pojoPostAndPutRequest   pojoPostAndPutRequestPodam
                 .post()
                 .then().log().body()
                 .statusCode(201)
