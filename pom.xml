@@ -28,6 +28,7 @@
         <allure.testng.ver>2.17.2</allure.testng.ver>
         <aspectj.version>1.9.5</aspectj.version>
         <allure.rest.assured.ver>2.17.2</allure.rest.assured.ver>
+        <allure.assertj.ver>2.17.3</allure.assertj.ver>
     </properties>
 
     <dependencies>
@@ -103,7 +104,11 @@
             <artifactId>allure-rest-assured</artifactId>
             <version>${allure.rest.assured.ver}</version>
         </dependency>
-
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-assertj</artifactId>
+            <version>${allure.assertj.ver}</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
