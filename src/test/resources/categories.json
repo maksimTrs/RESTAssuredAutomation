@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Infrastructure problems",
+    "traceRegex": "Test*",
+    "matchedStatuses": [
+      "broken",
+      "failed"
+    ]
+  }
+]
