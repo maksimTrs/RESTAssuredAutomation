@@ -8,7 +8,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pojo.PojoPostAndPutRequest;
 import pojo.PojoPostResponse;
-import pojo.PojoPutResponse;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
@@ -18,21 +17,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TestExampleDelete1 extends Base {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TestExamplePut1.class);
-
+    //  PojoPostAndPutRequest pojoPostAndPutRequest;
+    private static String pojoPostResponseId = "";
     Response response;
     PojoPostResponse pojoPostResponse;
-  //  PojoPostAndPutRequest pojoPostAndPutRequest;
-    private static String pojoPostResponseId = "";
-
 
     @BeforeMethod
     public void preparePostResponseForDeleteMethod() {
         PodamFactory podamFactory = new PodamFactoryImpl();
         PojoPostAndPutRequest pojoPostAndPutRequestPodam = podamFactory.manufacturePojo(PojoPostAndPutRequest.class);
 
-    //    pojoPostAndPutRequest = new PojoPostAndPutRequest();
-     //   pojoPostAndPutRequest.setName("morpheus1");
-     //   pojoPostAndPutRequest.setJob("leader1");
+        //    pojoPostAndPutRequest = new PojoPostAndPutRequest();
+        //   pojoPostAndPutRequest.setName("morpheus1");
+        //   pojoPostAndPutRequest.setJob("leader1");
 
         pojoPostResponse = given().log().uri()
                 .when()

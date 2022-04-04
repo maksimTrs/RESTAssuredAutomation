@@ -3,22 +3,20 @@ package tests;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.security.KeyStore;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Arrays;
+import java.util.List;
 
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 public class TestExampleGet1 extends Base {
 
-  //  private static Map<String, Integer> getParam = new HashMap<>(){{put("page", 2);}};
-   // private static  List<String> keyList = Collections.singletonList("page");
+    //  private static Map<String, Integer> getParam = new HashMap<>(){{put("page", 2);}};
+    // private static  List<String> keyList = Collections.singletonList("page");
     private static final String PAGE = "page";
-    private static  List<Integer> valueList = Arrays.asList(1,2);
+    private static List<Integer> valueList = Arrays.asList(1, 2);
 
 
     @Test(priority = 1, description = "Test Get Method from https://reqres.in/api/users?page=2 endpoint")
@@ -27,7 +25,7 @@ public class TestExampleGet1 extends Base {
         given().log().uri()
                 .when()
                 .header("Content-Type", "application/x-www-form-urlencoded")
-              //  .param(getParam.keySet().toString().replace("[","").replace("]", ""), getParam.values())
+                //  .param(getParam.keySet().toString().replace("[","").replace("]", ""), getParam.values())
                 .param(PAGE, valueList.get(1))
                 .get()
                 .then().log().body()

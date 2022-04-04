@@ -7,10 +7,10 @@ import static io.restassured.RestAssured.baseURI;
 
 public abstract class Base {
 
-    public static final  String divider = "/";
+    public static final String divider = "/";
 
     @BeforeClass
-    public  void setUp() {
+    public void setUp() {
         baseURI = "https://reqres.in/api/";
         basePath = "users";
     }

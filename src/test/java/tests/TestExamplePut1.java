@@ -3,9 +3,7 @@ package tests;
 import io.restassured.http.ContentType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pojo.PojoPostAndPutRequest;
 import pojo.PojoPostResponse;
@@ -13,17 +11,15 @@ import pojo.PojoPutResponse;
 
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
-import static tests.PostBodyConstructor.requestPutUserBody;
 
 public class TestExamplePut1 extends Base {
     private static final Logger LOGGER = LoggerFactory.getLogger(TestExamplePut1.class);
-
+    private final static String pojoPostResponseJob = "zion resident";
+    private static String pojoPostResponseId = "";
+    private static String pojoPostResponseName = "";
     PojoPutResponse pojoPutResponse;
     PojoPostResponse pojoPostResponse;
     PojoPostAndPutRequest pojoPostAndPutRequest;
-    private static String pojoPostResponseId= "";
-    private static String pojoPostResponseName = "";
-    private final static String pojoPostResponseJob= "zion resident";
 
     @BeforeMethod
     public void preparePostResponseForPutMethod() {
@@ -49,7 +45,7 @@ public class TestExamplePut1 extends Base {
     @Test(priority = 3, description = "Test Put Method from https://reqres.in/api/users/{ID} endpoint")
     public void test_PutMethod() {
         pojoPostAndPutRequest = new PojoPostAndPutRequest(pojoPostResponseName, pojoPostResponseJob);
-      //   String pojoPostResponseId = TestExamplePost1.id;
+        //   String pojoPostResponseId = TestExamplePost1.id;
         LOGGER.info("test_PutMethod() was started");
 
 
@@ -65,7 +61,7 @@ public class TestExamplePut1 extends Base {
         assertThat(pojoPutResponse.toString()).doesNotContain("\"id\"");
         assertThat(pojoPutResponse.getUpdatedAt()).as("Checking the response time").isNotNull()
                 .matches("[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z");
-       // assertThat(pojoPutResponse.getName()).isEqualTo("morpheus");
+        // assertThat(pojoPutResponse.getName()).isEqualTo("morpheus");
         assertThat(pojoPutResponse.getJob()).isEqualTo("zion resident");
 
 

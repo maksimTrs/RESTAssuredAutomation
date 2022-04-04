@@ -1,33 +1,35 @@
 package pojo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class PojoPostResponse {
 
-	@JsonProperty("createdAt")
-	private  String createdAt;
+    @JsonProperty("createdAt")
+    private String createdAt;
 
-	@JsonProperty("name")
-	private String name;
+    @JsonProperty("name")
+    private String name;
 
-	@JsonProperty("id")
-	private String id;
+    @JsonProperty("id")
+    private String id;
 
-	@JsonProperty("job")
-	private String job;
+    @JsonProperty("job")
+    private String job;
 
-	@Override
- 	public String toString(){
-		return 
-			"PojoPostResponse{" +
-			"createdAt = '" + createdAt + '\'' + 
-			",name = '" + name + '\'' + 
-			",id = '" + id + '\'' + 
-			",job = '" + job + '\'' + 
-			"}";
-		}
+    @Override
+    public String toString() {
+        return
+                "PojoPostResponse{" +
+                        "createdAt = '" + createdAt + '\'' +
+                        ",name = '" + name + '\'' +
+                        ",id = '" + id + '\'' +
+                        ",job = '" + job + '\'' +
+                        "}";
+    }
 }

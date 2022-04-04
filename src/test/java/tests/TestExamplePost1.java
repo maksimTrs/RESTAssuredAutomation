@@ -9,17 +9,16 @@ import pojo.PojoPostResponse;
 
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.hasSize;
 
 
 public class TestExamplePost1 extends Base {
 
-    private static final   Logger LOGGER = LoggerFactory.getLogger(TestExamplePost1.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TestExamplePost1.class);
 
     PojoPostResponse pojoPostResponse;
     PojoPostAndPutRequest pojoPostAndPutRequest; // = new PojoPostAndPutRequest("morpheus", "leader");
-   // private String jsonString = new Gson().toJson(pojoPostAndPutRequest);
-   // public static String id;
+    // private String jsonString = new Gson().toJson(pojoPostAndPutRequest);
+    // public static String id;
 
 
     @Test(priority = 2, description = "Test Post Method from https://reqres.in/api/users endpoint")
@@ -32,10 +31,10 @@ public class TestExamplePost1 extends Base {
 
         LOGGER.info("Printing INPUT variable values: name = {}, job = {}", pojoPostAndPutRequest.getName(), pojoPostAndPutRequest.getJob());
 
-         pojoPostResponse = given().log().uri()
+        pojoPostResponse = given().log().uri()
                 .when()
                 .contentType(ContentType.JSON)
-                 .body(pojoPostAndPutRequest) // pojoPostAndPutRequest   jsonString
+                .body(pojoPostAndPutRequest) // pojoPostAndPutRequest   jsonString
                 .post()
                 .then().log().body()
                 .statusCode(201)
@@ -47,7 +46,7 @@ public class TestExamplePost1 extends Base {
         assertThat(pojoPostResponse.getName()).isEqualTo("morpheus");
         assertThat(pojoPostResponse.getJob()).isEqualTo("leader");
 
-       // id = pojoPostResponse.getId();
+        // id = pojoPostResponse.getId();
 
         LOGGER.info("Printing OUTPUT variable values: name = {}, job = {}", pojoPostResponse.getName(), pojoPostResponse.getJob());
         LOGGER.info("test_PostMethod() was finished");

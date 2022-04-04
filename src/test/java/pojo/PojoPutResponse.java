@@ -10,22 +10,22 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PojoPutResponse {
 
-	@JsonProperty("name")
-	private String name;
+    @JsonProperty("name")
+    private String name;
 
-	@JsonProperty("job")
-	private String job;
+    @JsonProperty("job")
+    private String job;
 
-	@JsonProperty("updatedAt")
-	private String updatedAt;
+    @JsonProperty("updatedAt")
+    private String updatedAt;
 
-	@Override
- 	public String toString(){
-		return 
-			"PojoPutResponse{" +
-			"name = '" + name + '\'' + 
-			",job = '" + job + '\'' + 
-			",updatedAt = '" + updatedAt + '\'' + 
-			"}";
-		}
+    @Override
+    public String toString() {
+        return
+                "PojoPutResponse{" +
+                        "name = '" + name + '\'' +
+                        ",job = '" + job + '\'' +
+                        ",updatedAt = '" + updatedAt + '\'' +
+                        "}";
+    }
 }
