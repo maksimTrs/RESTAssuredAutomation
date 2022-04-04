@@ -1,6 +1,5 @@
 package tests;
 
-import io.restassured.http.ContentType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeMethod;
@@ -27,9 +26,8 @@ public class TestExamplePut1 extends Base {
         pojoPostAndPutRequest.setName("morpheus");
         pojoPostAndPutRequest.setJob("leader");
 
-        pojoPostResponse = given().log().uri()
+        pojoPostResponse = given()
                 .when()
-                .contentType(ContentType.JSON)
                 .body(pojoPostAndPutRequest) // pojoPostAndPutRequest   jsonString
                 .post()
                 .then().log().body()
@@ -49,9 +47,8 @@ public class TestExamplePut1 extends Base {
         LOGGER.info("test_PutMethod() was started");
 
 
-        pojoPutResponse = given().log().uri()
+        pojoPutResponse = given()
                 .when()
-                .contentType(ContentType.JSON)
                 .body(pojoPostAndPutRequest) // pojoPostResponseId or  requestPutUserBody
                 .put(divider + pojoPostResponseId)
                 .then().log().body()

@@ -1,6 +1,5 @@
 package tests;
 
-import io.restassured.http.ContentType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
@@ -31,9 +30,8 @@ public class TestExamplePost1 extends Base {
 
         LOGGER.info("Printing INPUT variable values: name = {}, job = {}", pojoPostAndPutRequest.getName(), pojoPostAndPutRequest.getJob());
 
-        pojoPostResponse = given().log().uri()
+        pojoPostResponse = given()
                 .when()
-                .contentType(ContentType.JSON)
                 .body(pojoPostAndPutRequest) // pojoPostAndPutRequest   jsonString
                 .post()
                 .then().log().body()

@@ -1,6 +1,5 @@
 package tests;
 
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -22,9 +21,8 @@ public class TestExampleGet1 extends Base {
     @Test(priority = 1, description = "Test Get Method from https://reqres.in/api/users?page=2 endpoint")
     public void test_GetMethod() {
 
-        given().log().uri()
+        given()
                 .when()
-                .header("Content-Type", "application/x-www-form-urlencoded")
                 //  .param(getParam.keySet().toString().replace("[","").replace("]", ""), getParam.values())
                 .param(PAGE, valueList.get(1))
                 .get()
@@ -36,9 +34,8 @@ public class TestExampleGet1 extends Base {
     @Test(description = "Test Get Method from https://reqres.in/api/users?page=1 endpoint")
     public void test_GetMethod2() {
 
-        Response response = given().log().uri()
+        Response response = given()
                 .when()
-                .contentType(ContentType.JSON)
                 .param(PAGE, valueList.get(0))
                 .get()
                 .then().log().body()
