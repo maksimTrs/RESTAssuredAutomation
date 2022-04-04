@@ -1,7 +1,6 @@
 package tests;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.slf4j.Logger;
@@ -16,6 +15,8 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Epic("Smoke Case")
+@Feature("Delete API case")
 public class TestExampleDelete1 extends Base {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TestExamplePut1.class);
@@ -24,6 +25,7 @@ public class TestExampleDelete1 extends Base {
     Response response;
     PojoPostResponse pojoPostResponse;
 
+    @Step("Prepare data for  Put Method")
     @BeforeMethod
     public void preparePostResponseForDeleteMethod() {
         PodamFactory podamFactory = new PodamFactoryImpl();
@@ -48,6 +50,7 @@ public class TestExampleDelete1 extends Base {
     }
 
     @Test(priority = 4, description = "Test Delete Method from https://reqres.in/api/users/{ID} endpoint")
+    @Step("Check Delete Method")
     @Story("Delete API test")
     @Description("Delete API test for /reqres.in/api/users/{ID}")
     public void test_DeleteMethod() {
